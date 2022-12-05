@@ -1,3 +1,16 @@
+/************************************************************************/
+/* Metal Gear Rising Revennge PC Autosplitter v2                        */
+/*                                                                      */
+/* Game Compatibility:                                                  */
+/*  * Metal Gear Rising Revengeance                                     */
+/*                                                                      */
+/* Created by JMaynard24                                                */
+/* Original file: https://github.com/JMaynard24/ASL/blob/master/MGR.asl */
+/* Updated by Hau5test                                                  */
+/*                                                                      */
+/* Thanks to Valeria_Chan for their input and advice                    */
+/************************************************************************/
+
 state("METAL GEAR RISING REVENGEANCE")
 {
 	bool    control   : 0x148DD2C; // player control
