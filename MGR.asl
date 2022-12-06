@@ -26,9 +26,9 @@ state("METAL GEAR RISING REVENGEANCE")
 }
 startup
 {
-	settings.Add("Main Game");
-	settings.Add("Boss Rush");
-	settings.Add("Sam DLC");
+	settings.Add("Main Game", true);
+	settings.Add("Boss Rush", false);
+	settings.Add("Sam DLC", false);
 	vars.splitSettings = new List<string> {
 		"Ray 1",
 		"Ray 2",
@@ -57,7 +57,7 @@ startup
 	};
 	settings.CurrentDefaultParent = "Main Game";
 	foreach (string splits in vars.splitSettings) {
-		settings.Add(splits, false);
+		settings.Add(splits, true);
 	}
 	vars.splitSettings2 = new List<string> {
 		"Mistral Start",
@@ -72,16 +72,19 @@ startup
 		"Excelsus QTE",
 		"Armstrong Start",
 		"Armstrong QTE",
+		"Armstrong (Sam DLC) Start",
+		"Armstrong (Sam DLC) QTE",
+		"Kahmsin (Bladewolf DLC) Start"
 	};
 	settings.CurrentDefaultParent = "Boss Rush";
 	foreach (string splits in vars.splitSettings2) {
-		settings.Add(splits, false);
+		settings.Add(splits, true);
 	}
 	settings.CurrentDefaultParent = "Sam DLC";
-	settings.Add("Samwolf", false, "Wolf");
-	settings.Add("Samray", false, "Ray");
-	settings.Add("Samvator", false, "Elevator");
-	settings.Add("Samstrong", false, "Armstrong");
+	settings.Add("Samwolf", true, "Wolf");
+	settings.Add("Samray", true, "Ray");
+	settings.Add("Samvator", true, "Elevator");
+	settings.Add("Samstrong", true, "Armstrong");
 }
 start
 {
@@ -159,6 +162,16 @@ start
 		timer.Run.Offset = new TimeSpan(9100000);
 		return true;
 	}
+	// Start of Senator Armstrong Boss (Sam DLC)
+	else if (current.gStr4 == "PC60" && old.gStr4 == "PF01") {
+		timer.Run.Offset = new TimeSpan(9100000);
+		return true;
+	}
+	// Start of Kahmsin (Bladewolf DLC)
+	else if (current.gStr4 == "PD60" && old.gStr4 == "PF01") {
+		timer.Run.Offset = new TimeSpan(9100000);
+		return true;
+	}
 }
 split
 {
@@ -200,7 +213,9 @@ split
            settings["Samwolf"] && current.gStr == "WOLF_END" && old.gStr != current.gStr ||
            settings["Samray"] && current.gStr == "RAY_END" && old.gStr == "RAY_RESUL" ||
            settings["Samvator"] && current.gStr == "START" && old.gStr == "ELV_END" ||
-           settings["Samstrong"] && current.gStr == "QTE" && current.samStrong == 2 && old.samStrong == 1;
+           settings["Armstrong (Sam DLC) Start"] && current.gStr4 == "PC60" && old.gStr4 == "PF01" ||
+           (settings["Samstrong"] || settings["Armstrong (Sam DLC) QTE"]) && current.gStr == "QTE" && current.samStrong == 2 && old.samStrong == 1 ||
+           settings["Kahmsin (Bladewolf DLC) Start"] && current.gStr4 == "PD60" && old.gStr4 == "PF01";
 }
 
 isLoading
