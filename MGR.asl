@@ -95,37 +95,37 @@ start
 	}
 	// Start of R-01
 	else if (current.gStr4 == "P118" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of R-02
 	else if (current.gStr4 == "P210" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of R-03
 	else if (current.gStr4 == "P310" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of R-04
 	else if (current.gStr4 == "P410" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of R-05
 	else if (current.gStr4 == "P510" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of R-06
 	else if (current.gStr4 == "P610" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of R-07
 	else if (current.gStr4 == "EV60" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	else if (current.gStr == "1" && current.load) {
@@ -134,42 +134,42 @@ start
 	}
 	// Start of Mistral Boss Fight
 	else if (current.gStr4 == "P170" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of Monsoon Boss Fight
 	else if (current.gStr4 == "P380" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of Sundowner Boss Fight
 	else if (current.gStr4 == "P470" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of Jetstream Sam Boss
 	else if (current.gStr4 == "P610" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of Metal Gear Excelsus Boss
 	else if (current.gStr4 == "P720" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of Senator Armstrong Boss
 	else if (current.gStr4 == "P730" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of Senator Armstrong Boss (Sam DLC)
 	else if (current.gStr4 == "PC60" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 	// Start of Kahmsin (Bladewolf DLC)
 	else if (current.gStr4 == "PD60" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(9100000);
+		timer.Run.Offset = new TimeSpan(0);
 		return true;
 	}
 }
