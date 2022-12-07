@@ -149,7 +149,7 @@ start
 	}
 	// Start of Jetstream Sam Boss
 	else if (current.gStr4 == "P610" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(0);
+		timer.Run.Offset = new TimeSpan(1000000);
 		return true;
 	}
 	// Start of Metal Gear Excelsus Boss
