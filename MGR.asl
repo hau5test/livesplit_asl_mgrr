@@ -29,6 +29,7 @@ startup
 	settings.Add("Main Game", true);
 	settings.Add("Boss Rush", false);
 	settings.Add("Sam DLC", false);
+	settings.Add("Bladewolf DLC", false);
 	vars.splitSettings = new List<string> {
 		"Ray 1",
 		"Ray 2",
@@ -80,6 +81,28 @@ startup
 	foreach (string splits in vars.splitSettings2) {
 		settings.Add(splits, true);
 	}
+
+	settings.CurrentDefaultParent = "Bladewolf DLC";
+	settings.Add("Bladewolf DLC Chapter 01", true, "End of Chapter 1");
+	settings.Add("Bladewolf DLC Chapter 02", true, "End of Chapter 2");
+	settings.Add("Bladewolf DLC Chapter 03", true, "End of Chapter 3");
+	settings.Add("Bladewolf DLC Chapter 04", true, "End of Chapter 4");
+	settings.Add("Bladewolf DLC Chapter 05", true, "End of Chapter 5");
+	settings.Add("Bladewolf DLC Chapter 06", true, "End of Chapter 6");
+	
+	settings.CurrentDefaultParent = "Bladewolf DLC Chapter 03";
+	settings.Add("BDLC Chapter 3 Mission 1", true, "Splits the End of Mission 1 in Chapter 3");
+	settings.Add("BDLC Chapter 3 Mission 2", true, "Splits the End of Mission 2 in Chapter 3");
+	settings.Add("BDLC Chapter 3 Mission 3 Start", true, "Splits between the End of Mission 2 and Start of Mission 3 in Chapter 3");
+
+	settings.CurrentDefaultParent = "Bladewolf DLC Chapter 04";
+	settings.Add("BDLC Chapter 4 City", true, "Splits the Start of Heli Battle");
+	settings.Add("BDLC Chapter 4 Heli", true, "Splits the Start of Bridge Battle");
+
+	settings.CurrentDefaultParent = "Bladewolf DLC Chapter 05";
+	settings.Add("BDLC Chapter 5 Battle", true, "Splits the End of First Battle");
+	settings.Add("BDLC Chapter 5 Enter Mansion", true, "Splits the End leaving the Streets");
+
 	settings.CurrentDefaultParent = "Sam DLC";
 	settings.Add("Samwolf", true, "Wolf");
 	settings.Add("Samray", true, "Ray");
@@ -149,7 +172,7 @@ start
 	}
 	// Start of Jetstream Sam Boss
 	else if (current.gStr4 == "P610" && old.gStr4 == "PF01") {
-		timer.Run.Offset = new TimeSpan(1000000);
+		timer.Run.Offset = new TimeSpan(10000000);
 		return true;
 	}
 	// Start of Metal Gear Excelsus Boss
@@ -170,6 +193,11 @@ start
 	// Start of Kahmsin (Bladewolf DLC)
 	else if (current.gStr4 == "PD60" && old.gStr4 == "PF01") {
 		timer.Run.Offset = new TimeSpan(0);
+		return true;
+	}
+	// Start of Bladewolf DLC
+	else if (current.gStr4 == "PD10" && old.gStr4 == "PF01") {
+		timer.Run.Offset = new TimeSpan(9100000);
 		return true;
 	}
 }
@@ -215,7 +243,20 @@ split
            settings["Samvator"] && current.gStr == "START" && old.gStr == "ELV_END" ||
            settings["Armstrong (Sam DLC) Start"] && current.gStr4 == "PC60" && old.gStr4 == "PF01" ||
            (settings["Samstrong"] || settings["Armstrong (Sam DLC) QTE"]) && current.gStr == "QTE" && current.samStrong == 2 && old.samStrong == 1 ||
-           settings["Kahmsin (Bladewolf DLC) Start"] && current.gStr4 == "PD60" && old.gStr4 == "PF01";
+           settings["Kahmsin (Bladewolf DLC) Start"] && current.gStr4 == "PD60" && old.gStr4 == "PF01" ||
+           settings["Bladewolf DLC Chapter 01"] && current.gStr4 == "PD20" && old.gStr4 == "PD10" ||
+           settings["Bladewolf DLC Chapter 02"] && current.gStr4 == "PD30" && old.gStr == "MOVIE" && current.gStr == "MISSION1" ||
+           settings["Bladewolf DLC Chapter 03"] && current.gStr4 == "PD40" && old.gStr4 == "PD30" ||
+           settings["BDLC Chapter 3 Mission 1"] && current.gStr4 == "PD30" && old.gStr == "M1_RESULT" && current.gStr == "MISSION2" ||
+           settings["BDLC Chapter 3 Mission 2"] && current.gStr4 == "PD30" && old.gStr == "M2_RESULT" && current.gStr == "M2_CLEAR" ||
+           settings["BDLC Chapter 3 Mission 3 Start"] && current.gStr4 == "PD30" && old.gStr == "M2_CLEAR2" && current.gStr == "MISSION3" ||
+           settings["Bladewolf DLC Chapter 04"] && current.gStr4 == "PD50" && old.gStr4 == "PD40" ||
+           settings["BDLC Chapter 4 City"] && current.gStr4 == "PD40" && old.gStr == "HELI" && current.gStr == "HELI_BTL" ||
+           settings["BDLC Chapter 4 Heli"] && current.gStr4 == "PD40" && old.gStr == "HELI_BTL" && current.gStr == "HELI_LOAD" ||
+           settings["Bladewolf DLC Chapter 05"] && current.gStr4 == "PD60" && old.gStr4 == "PD50" ||
+           settings["BDLC Chapter 5 Battle"] && current.gStr4 == "PD50" && old.gStr == "BTL" && current.gStr == "SET" ||
+           settings["BDLC Chapter 5 Enter Mansion"] && current.gStr4 == "PD50" && old.gStr == "GATE" && current.gStr == "GATE_IN" ||
+           settings["Bladewolf DLC Chapter 06"] && current.gStr4 == "PD60" && (old.gStr == "KHAMSIN" && current.gStr == "RESULT");
 }
 
 isLoading
