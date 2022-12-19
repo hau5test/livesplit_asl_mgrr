@@ -254,7 +254,7 @@ split
            settings["BDLC Chapter 4 City"] && current.gStr4 == "PD40" && old.gStr == "HELI" && current.gStr == "HELI_BTL" ||
            settings["BDLC Chapter 4 Heli"] && current.gStr4 == "PD40" && old.gStr == "HELI_BTL" && current.gStr == "HELI_LOAD" ||
            settings["Bladewolf DLC Chapter 05"] && current.gStr4 == "PD60" && old.gStr4 == "PD50" ||
-           settings["BDLC Chapter 5 Battle"] && current.gStr4 == "PD50" && old.gStr == "BTL" && current.gStr == "SET" ||
+           settings["BDLC Chapter 5 Battle"] && current.gStr4 == "PD50" && old.gStr == "SET_LOAD2" && current.gStr == "SET_CODEC" ||
            settings["BDLC Chapter 5 Enter Mansion"] && current.gStr4 == "PD50" && old.gStr == "GATE" && current.gStr == "GATE_IN" ||
            settings["Bladewolf DLC Chapter 06"] && current.gStr4 == "PD60" && (old.gStr == "KHAMSIN" && current.gStr == "RESULT");
 }
