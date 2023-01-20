@@ -128,7 +128,7 @@ start
 	}
 	//beach reset
 	else if (current.gStr4 == "P118" && current.load) {
-		timer.Run.Offset = new TimeSpan(45600000);
+		timer.Run.Offset = new TimeSpan(30000000);
 	    return true;
 	}
 	// Start of R-02
